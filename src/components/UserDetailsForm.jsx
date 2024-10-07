@@ -1,10 +1,12 @@
 import { useContext, useEffect, useState } from "react"
 import { store} from "./ResumeEdit";
 import * as y from "yup"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Formik,Form, Field, useFormik, yupToFormErrors, ErrorMessage } from "formik";
 import styled from "styled-components";
+import { Btns } from "./ResumeEdit";
 import { Objective } from "./Objective";
+import { flushSync } from "react-dom";
 export function UserForm()
 {
     const[data,setdata]=useContext(store);
@@ -47,28 +49,42 @@ export function UserForm()
             // <Formik>
             //     <Form onSubmit={formik.handleSubmit}>
             <Container>
-                <form>
-                    {/* <Btns>
-                        <button>Previous</button>
-                       <Link to='ResumeEdit/objective'><button onClick={handleroute}>Next</button></Link> 
-                       <button onClick={handleindex}>Next</button>
-                    </Btns> */}
-                    <div style={{display:"flex",flexDirection:'column' }}>
-                    <label htmlFor="firstname">FirstName</label>
-                    <input type="text" value={data.firstname} name="firstname" onChange={hanlemanually} id='firstname' placeholder="EnterYourFirstName" />
+                <form >
+                        <div className="grid gap-4 mb-2 md:grid-cols-2">
+                            <div>
+                    <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" htmlFor="firstname">FirstName</label>
+                    <input className=" g-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" type="text" value={data.firstname} name="firstname" onChange={hanlemanually} id='firstname' placeholder="Sridhar" />
                     {/* <ErrorMessage>{formik.errors.firstname}</ErrorMessage> */}
                     <p style={{color:"red"}}>{formik.errors.firstname}</p>
-                    <label htmlFor="LastName">LastName</label>
-                    <input value={data.LastName} type="text" name="LastName" onChange={hanlemanually} id='LastName' placeholder="EnterYourLastName" />
-                    <label htmlFor="address">Address</label>
-                    <input value={data.clientaddress} type="text" name='clientaddress' onChange={hanlemanually} id='address' placeholder="Address "></input>
-                    <label htmlFor="mobile">Mobile</label>
-                    <input value={data.clientmobile} type="tel" name='clientmobile' onChange={hanlemanually} id='moblie' placeholder="MobileNumber "></input>
-                    <label htmlFor="Email">Email</label>
-                    <input value={data.Email} type="Email" name='Email' onChange={hanlemanually} id='Email' placeholder="Email "></input>
-                    <label htmlFor="LinkedinProfile">LinkedinProfile</label>
-                    <input value={data.LinkedinProfile} type="url" name='LinkedinProfile' onChange={hanlemanually} id='Url' placeholder="LinkedinProfile "></input>
+                            </div>
+                            <div>
+                    <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" htmlFor="LastName">LastName</label>
+                    <input className="g-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value={data.LastName} type="text" name="LastName" onChange={hanlemanually} id='LastName' placeholder="Goli" />
+                            </div>
+                            <div>
+                        <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" htmlFor="City">City</label>
+                        <input className="g-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value={data.clientaddress} type="text" name='City' onChange={hanlemanually} id='City' placeholder="Hyderabad"></input>
+                            </div>
+                            <div>
+                        <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" htmlFor="State">State</label>
+                        <input className="g-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value={data.clientState} type="text" name='State' onChange={hanlemanually} id='State' placeholder="Telangana"></input>
+                            </div>
+                            <div>
+                    <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" htmlFor="mobile">Mobile</label>
+                    <input className="g-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value={data.clientmobile} type="tel" name='clientmobile' onChange={hanlemanually} id='moblie' placeholder="123456789"></input>
+                            </div>
+                            <div>
+                    <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"  htmlFor="Email">Email</label>
+                    <input className="g-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"value={data.Email} type="Email" name='Email' onChange={hanlemanually} id='Email' placeholder="xyz@gmail.com"></input>
+                            </div>
+                           
+                        </div>
+                    <div style={{display:"flex",flexDirection:'column' }}>
                     {/* <button >Next</button> */}
+                   
+                    <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" htmlFor="LinkedinProfile">LinkedinProfile</label>
+                    <input className="g-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value={data.LinkedinProfile} type="url" name='LinkedinProfile' onChange={hanlemanually} id='Url' placeholder="linkedin.com/in/example-profile"></input>
+                          
                     </div>
                     </form> 
                     {/* <Router>
@@ -83,9 +99,11 @@ export function UserForm()
 // export default UserForm;
 export const Container=styled.div`
     width: 37vw;
-    padding: 25px;
-    border: 2px solid blue;
-    margin: 20vh 10px;
+    padding: 1rem;
+    /* border: 2px solid blue; */
+    margin: auto auto;
+    height: 70vh;
+    /* margin: 20vh 10px; */
     /* display: flex;
     justify-content: center; */
 `
