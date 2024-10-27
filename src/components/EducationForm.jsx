@@ -111,7 +111,7 @@ useEffect(() => {
             <>
             <h2>Education</h2>
         {getedu.map((items,index)=>
-          <div>
+          <div key={index}>
             <form key={index} >
                 <FormDesign> 
                     <div>

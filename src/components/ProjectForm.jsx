@@ -24,7 +24,7 @@ export function ProjectForm()
         const intermediate=[...data,newdata]
         setdata(intermediate)
         // setdata([...data,newdata])
-        setcontext({...context,Projects:intermediate})
+        // setcontext({...context,Projects:intermediate})
     }
     const deletefields=(index)=>
         {

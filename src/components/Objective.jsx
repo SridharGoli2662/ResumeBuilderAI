@@ -40,12 +40,17 @@ export function Objective()
          set(!get)
      }
      //Aicomponent
-     const[getai,setai]=useState(false);
+    //  const[getai,setai]=useState(false);
+     function setpop()
+     {
+        // setai(true);
+        setter({...getter,popup:true})
+     }
     return(
         <Container>
         <div>
         <h2>Carrier Objective</h2>
-            {getai&&(<AiGenerator></AiGenerator>)}
+            {/* {getai&&(<AiGenerator></AiGenerator>)} */}
             <form  >
                 <textarea  className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" rows={10} value={getter.manualobjective} name="manualobjective" cols={30} onChange={handlemanually} placeholder="DescribeObjective"></textarea>
             </form>
@@ -90,7 +95,7 @@ export function Objective()
                         <div>
                             <p>No Content Is Generated</p>
                             <h3>Do You Really Want AI Content?</h3>
-                            <button onClick={()=>setai(!getai)} className="bg-green-500 px-3 py-2.5 text-m font-medium text-white hover:bg-green-700  focus:ring-4 focus:outline-none focus:ring-black-300 rounded-lg text-center">AI</button>
+                            <button onClick={setpop} className="bg-green-500 px-3 py-2.5 text-m font-medium text-white hover:bg-green-700  focus:ring-4 focus:outline-none focus:ring-black-300 rounded-lg text-center">AI</button>
                             </div>
                     )
                 }

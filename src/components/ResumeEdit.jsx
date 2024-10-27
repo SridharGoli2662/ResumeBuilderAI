@@ -2,7 +2,7 @@ import { SelectedResume } from "./SelectedResume";
 import {styled} from 'styled-components'
 import { createContext, useEffect, useState } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
-
+import { motion } from "framer-motion";
 import { AiGenerator } from "./AiContent.jsx";
 export const store=createContext();
 export function ResumeEdit()
@@ -17,9 +17,9 @@ export function ResumeEdit()
 // }]
 // })
 
-const[getdata,setdata]=useState({});
+const[getdata,setdata]=useState({popup:false});
 // const compos=[<UserForm/>,<Objective/>,<EductationForm/>,<ProfessionalSkills/>,<ProjectForm></ProjectForm>];
-const formroutes=['','Objective','Education','ProfessionalSkills','ProjectForm']
+const formroutes=['','Objective','Education','ProfessionalSkills','ProjectForm','Certifications','Achievements']
 const navigate=useNavigate();
 const [index,setindex]=useState(0)
 function handleindex()
@@ -44,14 +44,26 @@ function handlefont(e)
   setfont(e.target.value);
 }
 // console.log(getpop)
+// useEffect(
+//   //  <AiGenerator></AiGenerator>
+//   setTimeout(() => {
+//     <AiGenerator></AiGenerator>
+//   },3000),[])
+useEffect(() => {
+  const timer = setTimeout(() => {
+    setdata((prevData) => ({ ...prevData, popup: true }));
+  }, 3000); // Show popup after 3 seconds
 
+  return () => clearTimeout(timer); // Cleanup on unmount
+}, []);
 return(
   <>
       <Maincompo>
       <store.Provider value={[getdata,setdata]}>
-        <AiGenerator></AiGenerator>
+        {getdata.popup &&(<AiGenerator></AiGenerator>)}  
       <div id='leftside' style={{overflowY:'auto',marginTop:'5rem'}}>
-      <Btns>
+   
+    <Btns>
           <button className="px-5 mb-0 py-2.5 text-sm font-medium text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-center" onClick={reduceindex} disabled={index==0}> Previous</button>
           <button  className="px-5 py-2.5 text-sm font-medium text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-center" onClick={handleindex} disabled={index==formroutes.length-1} >Next</button>
       </Btns>
@@ -64,7 +76,7 @@ return(
           <div style={{display:"inline"}}>
           <select onChange={handlefont} >
             <option value="'Arial', sans-serif">Arial</option>
-            <option value="'Times New Roman', Times, serif" selected>Times New Roman</option>
+            <option value="'Times New Roman', Times, serif">Times New Roman</option>
             <option value="'Georgia', serif">Georgia</option>
             <option value="'Garamond', serif">Garamond</option>
             <option value="'Verdana', Geneva, sans-serif">Verdana </option>
@@ -72,8 +84,8 @@ return(
           </div>
         <Download>
                      {/* <button onClick={handledownload} style={{backgroundColor:'blue',color:"white"}}>Download</button> */}
-                     <button onClick={handledownload} class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center">
-  <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/></svg>
+                     <button onClick={handledownload} className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center">
+  <svg className="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/></svg>
   <span>Download</span>
 </button>
         </Download>

@@ -10,20 +10,17 @@ export function SelectedResume(props)
       // get.map((getter)=>
          <>
       <Resume  style={{fontFamily:props.fonts}}>
-             <div>
+             <div >
                 <div style={{justifyContent:'center',display:'flex'}}>
-                    <h2>{getter.firstname?getter.firstname:'Sridhar'}</h2>
-                    <h2>{getter.LastName?getter.LastName:'Goli'}</h2>
+                    <h2>{getter.firstname?getter.firstname:('')}</h2>
+                    <h2>{getter.LastName?getter.LastName:('')}</h2>
                 </div>
                 <div style={{display:'flex',justifyContent:'center',}}>
                 <div >
-                   <ul style={{display:"flex", gap:'10px',listStyleType:'none'}}>
-                        {/* <li>{getter.city?getter.city:"Hyderabad"}</li>
-                        <li>{getter.state}</li>
-                        <li>{getter.pincode} |</li> */}
-                         <li>{getter.clientaddress} | </li>
-                        <li>{getter.clientmobile} | </li>    
-                        <li>{getter.Email} | </li>
+                   <ul style={{display:"flex",listStyleType:'none', fontSize:'0.7rem'}}>
+                           <li>{getter.City},{getter.State}|</li>
+                        <li>{getter.clientmobile}|</li>    
+                        <li>{getter.Email}|</li>
                         <li>{getter.LinkedinProfile}</li>
                     </ul>
                  </div>
@@ -32,7 +29,7 @@ export function SelectedResume(props)
              </div>
              {
                getter.manualobjective &&(
-             <div>
+             <div style={{lineHeight:'1.3rem'}}>
                 {/* <h3>CarrerObjective</h3> */}
                 <Heading>OBJECTIVE</Heading>
                 <hr />
@@ -62,7 +59,6 @@ export function SelectedResume(props)
                              <li>{education.InstituteName},{education.InstituteCity}</li>
                               <li>Percentage:{education.Percentage}</li>
                              </ul>
-   
                       </div>
                        )
                      }
@@ -74,19 +70,17 @@ export function SelectedResume(props)
                         {/* <h2>PROFESSIONAL SKILLS</h2> */}
                         <Heading>PROFESSIONAL SKILLS</Heading>
                         <hr />
-                  {
-                     getter.Skills?.map((data,index)=>
-                        <div style={{marginTop:'1rem',lineHeight:'0',marginBottom:'-7px'}}>
-                           <ul style={{display:'flex',margin:'0px'}}>
-                           <li key={index}><SubHead>{data.Technologies}:</SubHead></li>
-                           <p>{data.skill}</p>
-                           </ul>
-                        </div>
-                        )
-                     }
-                     {/* <div>
-                        <span>{data.skill}</span>
-                     </div> */}
+                           <div style={{marginTop:'1rem',lineHeight:'0.5rem',marginBottom:'-7px'}}>
+      
+                     <ul style={{listStyleType: 'disc',  marginLeft: '20px' }}>
+  {getter.Skills?.map((data, index) => (
+    <li key={index} style={{ marginBottom: '10px' }}>
+      <SubHead>{data.Technologies}:</SubHead>
+      <span style={{ marginLeft: '10px' }}>{data.skill}</span>
+    </li>
+  ))}
+</ul>
+               </div>
                   </div>  
                 )}
                 {
@@ -97,12 +91,12 @@ export function SelectedResume(props)
                            <hr />
                   {
                   getter.Projects?.map((items,index)=>
-                     <div key={index}>
+                     <div key={index} style={{marginBottom:'0.4rem'}}>
                         <div style={{display:'flex',justifyContent:'space-between'}}>
                         <SubHead>{items.Name}</SubHead>
                         <a href={items.Link}>{items.Link}</a>
                         </div>
-                        <p>
+                        <p style={{marginBottom:'0',lineHeight:'1.3rem'}}>
                            {items.Desc}
                         </p>
                         <SubHead>Technologies Used:{items.TechnologiesUsed}</SubHead>
@@ -110,12 +104,53 @@ export function SelectedResume(props)
                   )} 
                         </div>
                   )}
-             <div style={{display:'flex',justifyContent:'space-around',
-             }}>
-                <div>CandidateName</div>
-                <div>CandidateEmail</div>
-                <div>CandidateMobile</div>
-             </div>
+                  {getter.Certifications?.length > 0 && (
+                     <div>
+                        {/* <h2>PROFESSIONAL SKILLS</h2> */}
+                        <Heading>Certificates</Heading>
+                        <hr />
+                        <div style={{marginTop:'1rem',lineHeight:'0.5rem',marginBottom:'-7px'}}>
+                           <ul style={{ listStyleType:'disc', margin:'0px'}}>
+                              {/* // getter.Certifications?.map((data,index)=>
+                              // <li  key={index}><SubHead>{data.CertificateName}:</SubHead>
+                              // <span>{data.IssuedBy}</span>
+                              // </li>) */}
+                  {
+                           getter.Certifications?.map((data, index) => (
+                              <li key={index} style={{marginBottom: '10px'}}>
+                                <SubHead>{data.CertificateName}:</SubHead>
+                                <span style={{marginLeft: '10px'}}>{data.IssuedBy}</span>
+                                <a href={data.Link} style={{float:'right',color:'blue',}}>{data.Link}</a>
+                              </li>
+                            ))
+                     }
+                     </ul>
+                     </div>
+                     
+                     {/* <div>
+                        <span>{data.skill}</span>
+                     </div> */}
+                  </div>  
+                )}
+                {
+                  getter.Achievements?.length>0 &&(
+                     <div>
+                        <Heading>Achievements</Heading>
+                        <hr />
+                        {
+                           getter.Achievements?.map((data,index)=>
+                           <li style={{lineHeight:'1.3rem'}} key={index}>{data.Achievement}</li>
+                           )
+                        }
+                     </div>
+                     
+                  )
+                }
+             {/* <div>
+                <span>CandidateName</span>
+                <span>CandidateEmail</span>
+                <span>andidateMobile</span>
+             </div> */}
         </Resume> 
         </>
       )
@@ -123,7 +158,10 @@ export function SelectedResume(props)
         }
 
 const Resume=styled.div`
-      font-size: 13px;
+li{
+   font-size: 1rem;
+}
+      font-size: 1rem;
       /* padding: 20px;
       height: 100vh; */
       width: 45rem; /* A4 width */
@@ -159,7 +197,7 @@ const Heading=styled.p`
       margin-bottom: 0px;
    
 `
-const SubHead=styled.p`
+const SubHead=styled.span`
    font-size: 15px;
    font-weight: bold;
 `

@@ -1,6 +1,8 @@
 import { flushSync } from "react-dom"
 import styled from "styled-components"
 import { Link } from "react-router-dom"
+import { motion } from "framer-motion"
+import { BenifitsCompo } from "./BenifitsCompo"
 export function LandingPage()
 {
     return(
@@ -24,16 +26,20 @@ export function LandingPage()
     </Landing>
     <DemoPiece>
             <div>
-                <img src="DemoPiece.jpg"></img>
-            </div>
-            <div>
                 <h2>Tired of Applying jobs  </h2>
                  <h3>Don't Worry We Are Here to Help You</h3>
-                <div style={{display:'flex', justifyContent:'right',margin:'10px'}}>
+                <div style={{background:"green", display:'flex', justifyContent:'right',margin:'10px',display:'inline-block', padding:"5px", borderRadius:"2px"}}>
                         <Link to={'/ResumeEdit'}><button >GetStarted</button></Link>
                 </div>
             </div>
+           
+  
+     <div>
+                <img style={{width:'10rem'}} src="DemoPiece.jpg"></img>
+            </div>  
+            
     </DemoPiece>
+    {/* <BenifitsCompo></BenifitsCompo> */}
     </>
     )
 }
@@ -50,11 +56,10 @@ const Landing=styled.div`
 `
 const DemoPiece=styled.div`
     width: 50vw;
-    margin: 20px auto ;
+    margin: 5rem auto ;
     display: flex;
-    gap: 20px;
-    border: 2px solid red;
-    height: 60vh;
+    gap: 4rem;
+    /* height: 60vh; */
     img{
         width: 20vw;
         border: 2px solid black;

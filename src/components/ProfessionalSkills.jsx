@@ -84,22 +84,79 @@ useEffect(() => {
         setdata(context.Skills); // Initialize with context values
     }
 },[context.Skills]);
+//popup code
+const[get,set]=useState(true)
+     function ai()
+     {
+         set(!get)
+     }
+     //Aicomponent
+    //  const[getai,setai]=useState(false);
+     function setpop()
+     {
+        // setai(true);
+        setcontext({...context,popup:true})
+     }
     return(
         <Container>
             <div>
             <div className="d-flex gap-3 m-5">
-                <p className="my-auto text-lg">Show AI Generated Content</p>
-                <button className="bg-green-500 px-3 py-2.5 text-m font-medium text-white hover:bg-green-700  focus:ring-4 focus:outline-none focus:ring-black-300 rounded-lg text-center">ClickHere</button>
-    
+                {/* <p className="my-auto text-lg">Show AI Generated Content</p>
+                <button onClick={ai} className="bg-green-500 px-3 py-2.5 text-m font-medium text-white hover:bg-green-700  focus:ring-4 focus:outline-none focus:ring-black-300 rounded-lg text-center">ClickHere</button> */}
+    {
+        get ?(
+            <div className="d-flex gap-3 m-5">
+            <p className="my-auto text-lg">Show AI Generated Content</p>
+            <button onClick={ai} className="bg-green-500 px-3 py-2.5 text-m font-medium text-white hover:bg-green-700  focus:ring-4 focus:outline-none focus:ring-black-300 rounded-lg text-center">ClickHere</button>
+        </div>
+        ):(
+    <div className="m-auto my-4 block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100">
+        <div>
+            <div className="text-right">
+            <button  onClick={ai} ><svg  className="w-[33px] h-[33px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+<path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.4" d="m15 9-6 6m0-6 6 6m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+</svg></button>
+                </div>
+                {
+                    context.AIContent?.keywords&&(
+              <div>
+            <p  className="text-xl font-bold">KeyWords:</p>
+            {/* <p className="text-m font-semibold">{getter.keywords}</p> */}
+            <ul>
+            {
+               context.AIContent.keywords?.map((x,index)=>
+                    <li key={index}>{x}</li>
+                    // console.log(x)
+                )
+            }
+            </ul>
+                </div>
+                    )
+                }
+        </div>
+        {
+            context.AIContent?.objective?(
+        <div>
+            <p className="text-xl font-bold">Objective:</p>
+            <p className="text-m font-semibold">{getter.AIContent.objective}</p>
+        </div>  
+            ):(
+                <div>
+                    <p>No Content Is Generated</p>
+                    <h3>Do You Really Want AI Content?</h3>
+                    <button onClick={setpop} className="bg-green-500 px-3 py-2.5 text-m font-medium text-white hover:bg-green-700  focus:ring-4 focus:outline-none focus:ring-black-300 rounded-lg text-center">AI</button>
+                    </div>
+            )
+        }
+    </div>
+        )
+    }
             </div>
-            <div>
-                    <p  className="text-xl font-bold">KeyWords:</p>
-                    <p className="text-m font-semibold">{context.keywords}</p>
-            </div>
+           
                 <h2>Professional Skills</h2>
                 {
                     data.map((items,index)=>
-                        <div>
+                        <div  key={index}>
                             
             <form action="submit">
                     <FormDesign key={index}>  

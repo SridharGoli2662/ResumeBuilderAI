@@ -10,15 +10,15 @@ import { UserForm } from './components/UserDetailsForm'
 import { EductationForm } from './components/EducationForm'
 import { ProfessionalSkills } from './components/ProfessionalSkills'
 import { ProjectForm } from './components/ProjectForm'
+import { Certificates } from './components/Certificates'
+import { Achievments } from './components/Achievments'
 // import '../src/index.css'
 
 function App() {
   const [count, setCount] = useState(0)
-
   return (
     <>
       <BrowserRouter>
-      
         <Routes>
            <Route path='/' element={<LandingPage></LandingPage>}></Route>
            <Route path='/ResumeEdit' element={<ResumeEdit></ResumeEdit>}>
@@ -27,7 +27,8 @@ function App() {
            <Route path='Education' element={<EductationForm></EductationForm>}></Route>
            <Route path='ProfessionalSkills' element={<ProfessionalSkills></ProfessionalSkills>}></Route>
            <Route path='ProjectForm' element={<ProjectForm></ProjectForm>}></Route>
-
+           <Route path='Certifications' element={<Certificates></Certificates>}></Route>
+           <Route path='Achievements' element={<Achievments></Achievments>}></Route>
            </Route>
            {/* <Route path='/ResumeEdit' element={<ResumeEdit></ResumeEdit>}> */}
         </Routes>
