@@ -15,7 +15,7 @@ export function LandingPage() {
     <>
       <Landing style={{}}>
         <div style={{width:'5vw',marginLeft:'20px'}}>
-        <img style={{borderRadius:'40px',width:'100%',height:'100%'}} src="/logoimg.jpg" alt="Logo" />
+        <img style={{borderRadius:'40px',width:'100%',height:'100%'}} src="/logo.jpg" alt="Logo" />
         </div>
         <div style={{ alignContent: "center", fontFamily: "Copperplate" }}>
           {/* <ul>
@@ -32,7 +32,7 @@ export function LandingPage() {
           }}
         >
           <button className="px-1 py-1   text-lg font-medium text-white bg-green-600 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 w-30 rounded-lg text-center mr-1.5">
-            SignIn
+            SignUp
           </button>
           <button className="px-1 py-1   text-lg font-medium text-white bg-green-600 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 w-30 rounded-lg text-center">
             LogIn
@@ -77,7 +77,7 @@ export function LandingPage() {
           </div>
         </div>
         <div className="demopic">
-          <img src="DemoPiece.jpg"></img>
+          <img src="demo.jpg"></img>
         </div>
       </DemoPiece>
 

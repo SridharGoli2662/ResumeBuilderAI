@@ -12,10 +12,7 @@ export default function DirectionToD() {
         <div className="STDContant">
           <h4>Step1.Click ON GetStarted Button</h4>
           <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat
-            sunt sit aut magnam itaque, voluptate veniam doloremque quae id
-            eligendi harum totam, dolor quia? Praesentium labore dolore iusto
-            delectus animi!
+           After Clicking You will Navigate to our ResumeBuilder Editing Process Please fill the forms with Accurate details 
           </p>
         </div>
       </div>
@@ -26,10 +23,7 @@ export default function DirectionToD() {
         <div className="STDContant">
           <h4>Step2.Navigate Through Next and Previous Button</h4>
           <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat
-            sunt sit aut magnam itaque, voluptate veniam doloremque quae id
-            eligendi harum totam, dolor quia? Praesentium labore dolore iusto
-            delectus animi!
+            You can Navigate to Next and Previous Forms By clicking   Next and Previous Butttons as Provided at Top of Forms
           </p>
         </div>
       </div>
@@ -40,10 +34,7 @@ export default function DirectionToD() {
         <div className="STDContant">
           <h4>Step3.Click ON Yes If You Want To Genterate AI Content</h4>
           <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat
-            sunt sit aut magnam itaque, voluptate veniam doloremque quae id
-            eligendi harum totam, dolor quia? Praesentium labore dolore iusto
-            delectus animi!
+            If You are Focusing for a Perticular Job then  Click on Yes To Genarate AI Based OBJECTIVE and Relavent KEYWORDS based on JobDescription 
           </p>
         </div>
       </div>
@@ -56,10 +47,7 @@ export default function DirectionToD() {
             Step4.Provide Relevent Jobdescription And Your Experience Level
           </h4>
           <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat
-            sunt sit aut magnam itaque, voluptate veniam doloremque quae id
-            eligendi harum totam, dolor quia? Praesentium labore dolore iusto
-            delectus animi!
+             Select your Exprerience Level and Provide job Title and Description to generate AI Content
           </p>
         </div>
       </div>
@@ -70,10 +58,7 @@ export default function DirectionToD() {
         <div className="STDContant">
           <h4>Step5.Click ON Download Button And Save Your Resume</h4>
           <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat
-            sunt sit aut magnam itaque, voluptate veniam doloremque quae id
-            eligendi harum totam, dolor quia? Praesentium labore dolore iusto
-            delectus animi!
+            After Filling All details Now your Resume is ready to Download this can be done By clicking Download Button at top of the Page
           </p>
         </div>
       </div>

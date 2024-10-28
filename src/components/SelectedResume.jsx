@@ -18,9 +18,9 @@ export function SelectedResume(props)
                 <div style={{display:'flex',justifyContent:'center'}}>
                 <div >
                    <ul style={{display:"flex",listStyleType:'none', fontSize:'0.7rem'}}>
-                           <li>{getter.City}{getter.City&&(' ,')}{getter.State}</li>
-                        <li>{getter.clientmobile}{getter.clientmobile&&(' |')}</li>    
-                        <li>{getter.Email}{getter.Email&&(' |')}</li>
+                           <li>{getter.City}{getter.City&&(',')}{getter.State}{getter.State&&('| ')}</li>
+                        <li>{getter.clientmobile}{getter.clientmobile&&('| ')}</li>    
+                        <li>{getter.Email}{getter.Email&&('| ')}</li>
                         <li>{getter.LinkedinProfile}</li>
                     </ul>
                  </div>
