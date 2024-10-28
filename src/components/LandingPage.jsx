@@ -70,7 +70,7 @@ export function LandingPage() {
           
       <Benefit></Benefit>
       <DirectionToD></DirectionToD>
-      {/* <Frequently></Frequently> */}
+      <Frequently></Frequently>
       <Footer></Footer>
     </>
   );
