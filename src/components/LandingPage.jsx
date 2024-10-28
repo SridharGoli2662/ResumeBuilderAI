@@ -17,14 +17,26 @@ export function LandingPage() {
         <div>
           <h1>Logo</h1>
         </div>
-        <div style={{ alignContent: "center" }}>
-          <ul>
+        <div style={{ alignContent: "center", fontFamily: "Copperplate" }}>
+          {/* <ul>
             <li>Resume</li>
             <li>CoverLetter</li>
-          </ul>
+          </ul> */}
+          <h2>Resume CoverLetter</h2>
         </div>
-        <div style={{ alignContent: "center", margin: "20px" }}>
-          <button>SignIn</button>
+        <div
+          style={{
+            alignContent: "center",
+            margin: "20px",
+            display: "flex",
+          }}
+        >
+          <button className="px-1 py-1   text-lg font-medium text-white bg-green-600 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 w-30 rounded-lg text-center mr-1.5">
+            SignIn
+          </button>
+          <button className="px-1 py-1   text-lg font-medium text-white bg-green-600 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 w-30 rounded-lg text-center">
+            LogIn
+          </button>
         </div>
       </Landing>
       <DemoPiece>
@@ -78,17 +90,18 @@ export function LandingPage() {
 }
 const Landing = styled.div`
   display: flex;
-  background-color: burlywood;
+  background-color: #639af2;
   justify-content: space-between;
   margin: 5px;
   padding: 5px;
+  border-radius: 10px;
 
   /* margin: 5px; */
-  ul {
-    list-style: none;
-    display: flex;
-    gap: 10px;
-  }
+  // ul {
+  //   list-style: none;
+  //   display: flex;
+  //   gap: 10px;
+  // }
 `;
 const DemoPiece = styled.div`
   margin: 6rem auto;
