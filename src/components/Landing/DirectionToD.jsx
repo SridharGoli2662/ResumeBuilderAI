@@ -94,7 +94,7 @@ const STD = styled.div`
     border: 1px solid black;
     width: 30vw;
     height: 35vh;
-    cousor: pointer;
+    cursor: pointer;
     img {
       width: 100%;
       height: 100%;
