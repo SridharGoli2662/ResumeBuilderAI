@@ -17,26 +17,7 @@ export function EductationForm()
             Endyear:2023
     }],
         enableReinitialize:true
-    })
-    // useEffect(()=>{
-    //     context&&setedu(context?.educations)
-    // },[])
-// function handlechange(e,index)
-// {
-//     const{name,value}=e.target;
-//     //creating dupicate State for modifying 
-//     const newobject=getedu.slice();
-//     // console.log(newobject[index])
-//     // newobject[]
-//     newobject[index][name]=value;
-//     // console.log(newobject)
-//     //setting the duplicate state after modification
-//     setedu(newobject)
-//     setcontex({...context,educations:newobject})
-//     formik.setFieldValue(name,value);
-//     console.log(context)
-
-// }    
+    })  
 function handlechange(e, index) {
     const { name, value } = e.target;
     const newobject = [...getedu]; // Create a new array
@@ -76,36 +57,6 @@ useEffect(() => {
         setedu(context.educations); // Initialize with context values
     }
 }, [context.educations]);
-// const handlefields=()=>
-//     {
-// /*getting previous values and updating new valuses so that the component will render each
-//    and every time by assuming it as a new object    */
-// setedu([...getedu,{
-//              InstituteDetails:'',
-//             Percentage:0,
-//             CourseName:'',
-//             StartYear:0,
-//             Endyear:0
-// }])
-// setcontex({...context,educations:getedu})
-// // setcontex({...context,educations:(prev=>[...prev,{
-// //              InstituteDetails:'',
-// //             Percentage:0,
-// //             CourseName:'',
-// //             StartYear:0,
-// //             Endyear:0
-// // }])})
-//     // console.log(getedu)
-//     // console.log(context)
-// }
-// useEffect(()=>{
-//         setcontex({
-//             ...context,
-//             educations:getedu
-// })
-// },[getedu])
-// getedu.map((x)=>console.log(x))
-// console.log(getedu)
     return(
         <Container>
             <>

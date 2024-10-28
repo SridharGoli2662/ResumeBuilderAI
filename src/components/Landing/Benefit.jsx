@@ -11,10 +11,7 @@ export default function Benefit() {
         <div className="BenefitContent">
           <h1>ATS Friendly</h1>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
-            expedita magni voluptates? Cum, iure? Minus sequi numquam asperiores
-            eius doloremque illum fugit! Possimus, illum nesciunt. Enim sequi
-            animi omnis odio? Repellat
+          Ensure your resume is optimized to pass through Applicant Tracking Systems (ATS) effortlessly. Our AI Resume Builder follows best practices for formatting, keywords, and layout to increase your chances of getting noticed by recruiters and landing an interview.
           </p>
         </div>
         <div className="BenefitImg">
@@ -23,10 +20,7 @@ export default function Benefit() {
         <div className="BenefitContent">
           <h1>Download Free</h1>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
-            expedita magni voluptates? Cum, iure? Minus sequi numquam asperiores
-            eius doloremque illum fugit! Possimus, illum nesciunt. Enim sequi
-            animi omnis odio? Repellat
+          Get your polished, professional resume with no hidden costs. Once your resume is ready, download it in multiple formats, including PDF, at absolutely no charge.
           </p>
         </div>
       </div>
@@ -37,10 +31,7 @@ export default function Benefit() {
         <div className="BenefitContent">
           <h1>Customizable Fonts</h1>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
-            expedita magni voluptates? Cum, iure? Minus sequi numquam asperiores
-            eius doloremque illum fugit! Possimus, illum nesciunt. Enim sequi
-            animi omnis odio? Repellat
+          Make your resume uniquely yours by selecting from a variety of font styles. Customizable fonts allow you to personalize your resume’s look, helping you stand out while maintaining a professional appearance.
           </p>
         </div>
         <div className="BenefitImg">
@@ -49,10 +40,7 @@ export default function Benefit() {
         <div className="BenefitContent">
           <h1>Align your resume based on Job Description</h1>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
-            expedita magni voluptates? Cum, iure? Minus sequi numquam asperiores
-            eius doloremque illum fugit! Possimus, illum nesciunt. Enim sequi
-            animi omnis odio? Repellat
+          Tailor your resume to match specific job descriptions. Our AI tool analyzes job requirements and suggests relevant keywords, skills, and project highlights, so you can align your profile closely with what employers are looking for.
           </p>
         </div>
       </div>

@@ -15,12 +15,12 @@ export function SelectedResume(props)
                     <h2>{getter.firstname?getter.firstname:('')}</h2>
                     <h2>{getter.LastName?getter.LastName:('')}</h2>
                 </div>
-                <div style={{display:'flex',justifyContent:'center',}}>
+                <div style={{display:'flex',justifyContent:'center'}}>
                 <div >
                    <ul style={{display:"flex",listStyleType:'none', fontSize:'0.7rem'}}>
-                           <li>{getter.City},{getter.State}|</li>
-                        <li>{getter.clientmobile}|</li>    
-                        <li>{getter.Email}|</li>
+                           <li>{getter.City}{getter.City&&(' ,')}{getter.State}</li>
+                        <li>{getter.clientmobile}{getter.clientmobile&&(' |')}</li>    
+                        <li>{getter.Email}{getter.Email&&(' |')}</li>
                         <li>{getter.LinkedinProfile}</li>
                     </ul>
                  </div>

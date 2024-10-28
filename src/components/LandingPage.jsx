@@ -14,8 +14,8 @@ export function LandingPage() {
   return (
     <>
       <Landing style={{}}>
-        <div>
-          <h1>Logo</h1>
+        <div style={{width:'5vw',marginLeft:'20px'}}>
+        <img style={{borderRadius:'40px',width:'100%',height:'100%'}} src="/logoimg.jpg" alt="Logo" />
         </div>
         <div style={{ alignContent: "center", fontFamily: "Copperplate" }}>
           {/* <ul>

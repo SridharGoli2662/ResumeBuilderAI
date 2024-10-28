@@ -122,7 +122,7 @@ function Accordion() {
         <div id="accordion-collapse-body-3" aria-labelledby="accordion-collapse-heading-3">
           <div className="p-5 border border-t-0 border-gray-200 dark:border-gray-700">
             <p className="mb-2 text-gray-500 dark:text-gray-400">
-            es, once your resume is complete, you can download it in  PDF Format, which is easy to share or print. Our builder also ensures the document is optimized for both digital and print formats, so it looks professional in any setting.
+            yes, once your resume is complete, you can download it in  PDF Format, which is easy to share or print. Our builder also ensures the document is optimized for both digital and print formats, so it looks professional in any setting.
             </p>           
           </div>
         </div>
