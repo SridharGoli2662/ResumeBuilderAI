@@ -70,7 +70,7 @@ export function LandingPage() {
            <h2>Carft your Ai Resume</h2> */}
 
             <Link to={"/ResumeEdit"}>
-              <button className="px-5 py-2.5 text-lg font-medium text-white bg-orange-600 hover:bg-orange-800 focus:ring-4 focus:outline-none focus:ring-orange-300 w-60 rounded-lg text-center">
+              <button className="px-5 py-2.5 text-lg font-medium text-white bg-orange-600 hover:bg-orange-800   w-60 rounded-lg text-center">
                 GetStarted
               </button>
             </Link>

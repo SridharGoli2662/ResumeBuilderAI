@@ -1,13 +1,11 @@
 import { useContext } from "react"
 import { store,} from "./ResumeEdit";
 import styled from "styled-components";
+import Markdown from "react-markdown";
 export function SelectedResume(props)
 {
       const[getter]=useContext(store);
-      console.log(getter)
-   //  console.log(prop.prop)
     return(
-      // get.map((getter)=>
          <>
       <Resume  style={{fontFamily:props.fonts}}>
              <div >
@@ -45,7 +43,7 @@ export function SelectedResume(props)
                   getter.educations?.map((education,index)=>
                       <div key={index} style={{lineHeight:'0px',marginTop:'1.5rem'}}>
                             
-                                <ul style={{display:'flex',justifyContent:'space-between',fontSize:'13px'}} >
+                                <ul style={{ listStyleType:'none', display:'flex',justifyContent:'space-between',fontSize:'13px'}} >
                                    <li >{education.Degree}
                                       - {education.FieldofStudy}</li>
                                       {/* <li>{education.Percentage}%</li> */}
@@ -55,7 +53,7 @@ export function SelectedResume(props)
                                 </ul>
                             
                             
-                             <ul style={{display:'flex',justifyContent:'space-between',fontSize:'13px'}}>
+                             <ul style={{listStyleType:'none',display:'flex',justifyContent:'space-between',fontSize:'13px'}}>
                              <li>{education.InstituteName},{education.InstituteCity}</li>
                               <li>Percentage:{education.Percentage}</li>
                              </ul>
@@ -72,7 +70,7 @@ export function SelectedResume(props)
                         <hr />
                            <div style={{marginTop:'1rem',lineHeight:'0.5rem',marginBottom:'-7px'}}>
       
-                     <ul style={{listStyleType: 'disc',  marginLeft: '20px' }}>
+                     <ul style={{ marginLeft: '20px' }}>
   {getter.Skills?.map((data, index) => (
     <li key={index} style={{ marginBottom: '10px' }}>
       <SubHead>{data.Technologies}:</SubHead>
@@ -96,9 +94,12 @@ export function SelectedResume(props)
                         <SubHead>{items.Name}</SubHead>
                         <a href={items.Link}>{items.Link}</a>
                         </div>
-                        <p style={{marginBottom:'0',lineHeight:'1.3rem'}}>
+                        {/* <p style={{marginBottom:'0',lineHeight:'1.3rem'}}>
                            {items.Desc}
-                        </p>
+                        </p> */}
+                       <Markdown>{items.Desc}</Markdown>
+                        
+
                         <SubHead>Technologies Used:{items.TechnologiesUsed}</SubHead>
                      </div>
                   )} 
@@ -110,7 +111,7 @@ export function SelectedResume(props)
                         <Heading>Certificates</Heading>
                         <hr />
                         <div style={{marginTop:'1rem',lineHeight:'0.5rem',marginBottom:'-7px'}}>
-                           <ul style={{ listStyleType:'disc', margin:'0px'}}>
+                           <ul style={{ margin:'0px'}}>
                               {/* // getter.Certifications?.map((data,index)=>
                               // <li  key={index}><SubHead>{data.CertificateName}:</SubHead>
                               // <span>{data.IssuedBy}</span>
@@ -160,6 +161,9 @@ export function SelectedResume(props)
 const Resume=styled.div`
 li{
    font-size: 1rem;
+}
+ul{
+   list-style-type: disc;
 }
       font-size: 1rem;
       /* padding: 20px;

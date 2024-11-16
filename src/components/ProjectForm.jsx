@@ -2,6 +2,7 @@ import { useContext, useDebugValue, useEffect, useState } from "react"
 import { Addition, FormDesign } from "./EducationForm";
 import {Container } from "./UserDetailsForm";
 import { store } from "./ResumeEdit";
+import { flushSync } from "react-dom";
 export function ProjectForm()
 {
     const[context,setcontext]=useContext(store);
@@ -47,11 +48,27 @@ export function ProjectForm()
             setdata(context.Projects)
         }
     },[context.Projects])
+    const [accordian,setaccordian]=useState(false);
     return(
         <Container>
 
        
         <div>
+            <div  className="max-w-md p-2 bg-white border border-gray-200 rounded-lg shadow mx-auto m-3">
+                <div  onClick={()=>setaccordian(!accordian)}>
+                    <div style={{cursor:'pointer',display:'flex',justifyContent:"space-between"}}>
+                <h4>MarkDowns are Available</h4>
+                <span style={{margin:'auto 10px'}}>{accordian?<img style={{width:'1vw'}} src="/down_arrow.svg"></img>:<img style={{width:'1vw'}} src="/up_arrow.svg"></img>}</span>
+                    </div>
+                </div>
+                { accordian? <div style={{textAlign:'center',margin:'10px'}}>
+                    <p>- for unorderlist</p>
+                    <p>** for Bold Text **</p>
+                    <p>* for Italic Text *</p>
+                    <p>- for unorderlist</p>
+
+                </div> :' '}
+            </div>
             <h2>Project Details</h2>
             
                 <FormDesign>

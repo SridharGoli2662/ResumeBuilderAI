@@ -11,4 +11,7 @@ export default defineConfig({
   //     // REACT_APP_GEMINI_API_SECRET: JSON.stringify(process.env.REACT_APP_GEMINI_API_SECRET)
   //   }
   // }
+  // server: {
+  //   historyApiFallback: true, // Ensures proper routing for SPA
+  // },
 })

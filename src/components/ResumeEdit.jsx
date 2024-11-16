@@ -2,35 +2,29 @@ import { SelectedResume } from "./SelectedResume";
 import {styled} from 'styled-components'
 import { createContext, useEffect, useState } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
 import { AiGenerator } from "./AiContent.jsx";
 export const store=createContext();
 export function ResumeEdit()
 {
-  // const[getdata,setdata]=useState({'firstname':'sridhar','LastName':'Goli','clientmobile':'868850926'
-//     ,eductaion:[{   
-//               InstituteDetails:'SARDARPATEL DEGREE COLLEGE ',
-//               Percentage:88,
-//               CourseName:'MCA',
-//               StartYear:2023,
-//               Endyear:2024
-// }]
-// })
-
 const[getdata,setdata]=useState({popup:false});
-// const compos=[<UserForm/>,<Objective/>,<EductationForm/>,<ProfessionalSkills/>,<ProjectForm></ProjectForm>];
 const formroutes=['','Objective','Education','ProfessionalSkills','ProjectForm','Certifications','Achievements']
 const navigate=useNavigate();
 const [index,setindex]=useState(0)
 function handleindex()
 {
-   setindex(index+1)
-   navigate(formroutes[index+1])
+  if(index<formroutes.length-1)
+  {
+    setindex(index+1)
+    navigate(formroutes[index+1])
+  }
 }
 function reduceindex()
 {
+  if(index>0)
+  {
     setindex(index-1)
     navigate(formroutes[index-1])
+  }
 }
 function handledownload(e)
 {
@@ -40,37 +34,41 @@ function handledownload(e)
 const[getfont,setfont]=useState("'Times New Roman', Times, serif");
 function handlefont(e)
 {
-  // console.log(e.target)
   setfont(e.target.value);
 }
-// console.log(getpop)
-// useEffect(
-//   //  <AiGenerator></AiGenerator>
-//   setTimeout(() => {
-//     <AiGenerator></AiGenerator>
-//   },3000),[])
 useEffect(() => {
   const timer = setTimeout(() => {
     setdata((prevData) => ({ ...prevData, popup: true }));
-  }, 3000); // Show popup after 3 seconds
-
-  return () => clearTimeout(timer); // Cleanup on unmount
+  }, 3000); 
+  navigate(formroutes[0]);
+  return () => clearTimeout(timer);
 }, []);
+const navg=useNavigate();
 return(
   <>
       <Maincompo>
       <store.Provider value={[getdata,setdata]}>
-        {getdata.popup &&(<AiGenerator></AiGenerator>)}  
-      <div id='leftside' style={{overflowY:'auto',marginTop:'5rem'}}>
-   
+        {getdata.popup &&(<AiGenerator></AiGenerator>)} 
+        <div>
+        
+        <div style={{    margin: '0px 1rem',padding: '1rem'}}>
+            <button  className=" d-flex px-3 mb-0 py-2.5 text-md font-medium text-black bg-gray-300 hover:bg-gray-500   rounded-md text-center" onClick={()=>navg('/')} >
+             
+                <img style={{width:'1.3rem',height:'1.3rem',margin:'0px 5px'}} src="/home_icon.svg"></img>
+             
+              Home</button>
+        </div>
+      <div id='leftside' style={{overflowY:'auto',marginTop:'2rem'}}>
+     
     <Btns>
-          <button className="px-5 mb-0 py-2.5 text-sm font-medium text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-center" onClick={reduceindex} disabled={index==0}> Previous</button>
-          <button  className="px-5 py-2.5 text-sm font-medium text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-center" onClick={handleindex} disabled={index==formroutes.length-1} >Next</button>
+          <button className="px-5 mb-0 py-2.5 text-sm font-medium text-white bg-blue-700 hover:bg-blue-800  rounded-lg text-center" onClick={reduceindex} disabled={index==0}> Previous</button>
+          <button  className="px-5 py-2.5 text-sm font-medium text-white bg-blue-700 hover:bg-blue-800  rounded-lg text-center" onClick={handleindex} disabled={index==formroutes.length-1} >Next</button>
       </Btns>
       <div  id="forms" >
         <Outlet key={index}></Outlet>
       </div>
-        </div> 
+        </div>
+      </div>  
         <div style={{width:'50vw'}}>
         <Top id="top">
           <div style={{display:"inline"}}>
@@ -107,22 +105,15 @@ const Resumediv=styled.div`
     height:85vh;
     margin: auto auto;
     border: 2px solid black;
-   /* border: 2px solid black; */
-   /* position: sticky; */
-   /* top: 0%; */
-   /* height: 70vh; */  
 `
 export const Btns=styled.div`
     display: flex;
     justify-content: space-between;
     margin: 1.5rem;
     margin-bottom: 5px;
-    /* position: sticky; */
-    /* top: 1rem; */
-    /* background-color: white; */
 `
 const Download=styled.div`
-  /* background-color: blue; */
+  
   color: white;
 `
 const Top=styled.div`
@@ -141,9 +132,7 @@ display: flex;
 }
   @media print {
     #one{
-      /* width: 100%; */
-      /* display: none; */
-      width: 210mm;
+    width: 210mm;
     height: 297mm;
     box-shadow: none;
     border: none;
@@ -157,15 +146,6 @@ display: flex;
     #top{
       display: none;
     }
-     /* #one{ */
-      /* width: 100vw; */
-      /* margin-top: 0; */
-      
-      /* height:; */
-      /* display: absolute; */
-      /* display: absolute; */
-      /* background-color: black; */
-    /* }  */
   }
 `
 

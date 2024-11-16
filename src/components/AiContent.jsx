@@ -16,14 +16,12 @@ function datasetting(e)
        [name]:value
 })
 }
-console.log(getuserdata)
 //AI Services
 const Prompt=`generate best keywords and objective for Role:"${getuserdata?.jt}" ExperienceLevel:"${getuserdata?.experience}" and the jobDescription is "${getuserdata?.jd}" with in 100 tokens use 70 tokens for objective in JSON format`
 async function aiContent()
 {
   setdecision(false)
    const result= await AIchatSession.sendMessage(Prompt)
-   console.log(JSON.parse(result.response.text()))
    setdata({...getdata,AIContent:JSON.parse(result.response.text())});
 }
 //popup usestate
@@ -119,15 +117,12 @@ const Outer=styled.div `
 #Popupbg{
   position: absolute;
    display: flex;
-  /* justify-content: center; */
-  /* align-items: center; */
   width: 100%;
   height: 100%;
   background-color:rgba(0,0,0,0.5) ;
 }
 
 #popup{
-  /* position: absolute; */
   background-color:white;
   width:20rem;
   align-items: center;
@@ -139,14 +134,10 @@ const Outer=styled.div `
   height: 100%;
   background-color: rgba(0,0,0,0.5);
   display: flex;
-  /* justify-content: center; */
-  /* align-items: center; */
 }
 #jddetails{
   background-color: white;
   width:30vw;
-  /* margin: 2rem; */
-  /* display: inline; */
   margin: auto auto;
   border-radius: 1rem;
 }

@@ -21,7 +21,6 @@ const[getcontext,setcontext]=useContext(store);
       setdata(newobject)
       setcontext({...getcontext,Achievements:newobject})
   }
-  console.log(data)
 const handlefields=()=>{
   const newstate={};
   setdata([...data,newstate]);
