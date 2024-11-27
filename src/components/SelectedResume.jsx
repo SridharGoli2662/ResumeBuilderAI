@@ -9,17 +9,17 @@ export function SelectedResume(props)
          <>
       <Resume  style={{fontFamily:props.fonts}}>
              <div >
-                <div style={{justifyContent:'center',display:'flex'}}>
-                    <h2>{getter.firstname?getter.firstname:('')}</h2>
+                <div style={{justifyContent:'center',display:'flex',gap:'10px'}}>
+                    <h2>{getter.firstname?getter.firstname:('')}{getter.firstname&&(' ')}</h2>
                     <h2>{getter.LastName?getter.LastName:('')}</h2>
                 </div>
                 <div style={{display:'flex',justifyContent:'center'}}>
                 <div >
-                   <ul style={{display:"flex",listStyleType:'none', fontSize:'0.7rem'}}>
-                           <li>{getter.City}{getter.City&&(',')}{getter.State}{getter.State&&('| ')}</li>
-                        <li>{getter.clientmobile}{getter.clientmobile&&('| ')}</li>    
-                        <li>{getter.Email}{getter.Email&&('| ')}</li>
-                        <li>{getter.LinkedinProfile}</li>
+                   <ul style={{display:"flex",listStyleType:'none', fontSize:'0.7rem',padding:'0px'}}>
+                           <li>{getter.City}{getter.City&&(',')}{getter.State}{getter.State&&(' | ')}</li>
+                        <li>{getter.clientmobile}{getter.clientmobile&&(' | ')}</li>    
+                        <li>{getter.Email}</li>
+                        <li>{getter.LinkedinProfile&&('| ')}{getter.LinkedinProfile}</li>
                     </ul>
                  </div>
                 </div>

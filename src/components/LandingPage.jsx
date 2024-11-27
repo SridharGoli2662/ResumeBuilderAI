@@ -10,6 +10,7 @@ import Benefit from "./Landing/Benefit";
 import DirectionToD from "./Landing/DirectionToD";
 import { TypeAnimation } from "react-type-animation";
 import Frequently from "./Landing/Faq";
+import Direc from "./Landing/Directions";
 export function LandingPage() {
   return (
     <>
@@ -83,6 +84,7 @@ export function LandingPage() {
 
       <Benefit></Benefit>
       <DirectionToD></DirectionToD>
+      {/* <Direc></Direc> */}
       <Frequently></Frequently>
       <Footer></Footer>
     </>
