@@ -11,11 +11,12 @@ import DirectionToD from "./Landing/DirectionToD";
 import { TypeAnimation } from "react-type-animation";
 import Frequently from "./Landing/Faq";
 import Direc from "./Landing/Directions";
+import ResumeSteps from "./SampleTesting";
 export function LandingPage() {
   return (
     <>
       <Landing style={{}}>
-        <div style={{width:'5vw',marginLeft:'20px'}}>
+        <div id='logo' style={{width:'5rem',marginLeft:'20px'}}>
         <img style={{borderRadius:'40px',width:'100%',height:'100%'}} src="/logo.jpg" alt="Logo" />
         </div>
         <div style={{ alignContent: "center", fontFamily: "Copperplate" }}>
@@ -48,7 +49,7 @@ export function LandingPage() {
               Start building your future today with our AI-driven approach!
             </h5>
           </div>
-          <div style={{ marginTop: "5rem" }}>
+          <div style={{ marginTop: "3rem",width:'100%' }}>
             <TypeAnimation
               sequence={[
                 "Tired of Applying jobs", // First sentence
@@ -69,9 +70,8 @@ export function LandingPage() {
             {/* <h4>Tired of Applying jobs </h4>
           <h4>Don't Worry We Are Here to Help You</h4>
            <h2>Carft your Ai Resume</h2> */}
-
             <Link to={"/ResumeEdit"}>
-              <button className="px-5 py-2.5 text-lg font-medium text-white bg-orange-600 hover:bg-orange-800   w-60 rounded-lg text-center">
+              <button className="px-5 py-2.5  text-lg font-medium text-white bg-orange-600 hover:bg-orange-800   w-60 rounded-lg text-center">
                 GetStarted
               </button>
             </Link>
@@ -83,8 +83,9 @@ export function LandingPage() {
       </DemoPiece>
 
       <Benefit></Benefit>
-      <DirectionToD></DirectionToD>
+      {/* <DirectionToD></DirectionToD> */}
       {/* <Direc></Direc> */}
+      <ResumeSteps></ResumeSteps>
       <Frequently></Frequently>
       <Footer></Footer>
     </>
@@ -104,6 +105,11 @@ const Landing = styled.div`
   //   display: flex;
   //   gap: 10px;
   // }
+  @media  screen and (max-width:767px) {
+    #logo{
+      width: 5vw;
+    }
+  }
 `;
 const DemoPiece = styled.div`
   margin: 6rem auto;
@@ -140,6 +146,17 @@ const DemoPiece = styled.div`
     h5 {
       font-weight: bold;
       font-style: italic;
+    }
+  }
+  @media  screen and (max-width:767px){
+    .left{
+      width: 100vw;
+    }
+    display: inline;
+    .demopic{
+      /* width: 50vw; */
+      margin: 3rem auto;
+
     }
   }
 `;

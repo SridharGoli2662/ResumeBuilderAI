@@ -97,4 +97,7 @@ const STD = styled.div`
     padding: 1rem;
     /* height: 20rem; */
   }
+  @media screen and (max-width:767px) {
+    margin: 6rem auto;
+  }
 `;

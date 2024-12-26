@@ -51,7 +51,7 @@ const BenefitStyle = styled.div`
   .BenefitBox {
     display: flex;
     justify-content: space-evenly;
-    margin: 50px;
+    margin: 3rem;
     h1 {
       text-align: center;
     }
@@ -66,5 +66,17 @@ const BenefitStyle = styled.div`
     width: 30rem;
     height: 15rem;
     // border: 2px solid black;
+  }
+  @media  screen and (max-width:767px) {
+   /* height: 50vh; */
+   margin: 3rem auto;
+   .BenefitBox{
+    height: 40vh;
+    /* margin: 3rem; */
+   }
+   .BenefitContent{
+    /* word-wrap: break-word; */
+    /* word-break: break-all; */
+   }
   }
 `;

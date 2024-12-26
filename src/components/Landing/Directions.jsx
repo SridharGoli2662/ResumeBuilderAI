@@ -17,7 +17,7 @@ const Direc = () => {
 // console.log(sectionRefs)
   const handleScroll = () => {
     sectionRefs.current.forEach((section, i) => {
-      console.log(section.getBoundingClientRect())
+      // console.log(section.getBoundingClientRect())
       const rect = section.getBoundingClientRect();
       if (rect.top < 264 && rect.bottom > 264) {
         setCurrentImage(sections[i].image);

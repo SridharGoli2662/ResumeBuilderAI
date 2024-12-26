@@ -2,12 +2,82 @@ import { useContext } from "react"
 import { store,} from "./ResumeEdit";
 import styled from "styled-components";
 import Markdown from "react-markdown";
+// import jsPDF from "jspdf";
+import htmlToPdfmake from "html-to-pdfmake";
+import PdfPrinter from "pdfmake";
+import pdfMake from "pdfmake/build/pdfmake";
+import pdfFonts from 'pdfmake/build/vfs_fonts';
+// import Pdfmake
+// pdfMake.fonts = {
+//    Roboto: {
+//        normal: 'Roboto-Regular.ttf',
+//        bold: 'Roboto-Bold.ttf',
+//        italics: 'Roboto-Italic.ttf',
+//        bolditalics: 'Roboto-BoldItalic.ttf',
+//    },
+// };
+// pdfMake.vfs = pdfFonts.pdfMake.vfs;
+function dwnld(getter) {
+   // const element = document.getElementById("done").innerText;
+   const docdef={
+      content: [
+         {
+           text: `${getter.firstname || ""} ${getter.LastName || ""}`,
+           style: "header",
+         },
+         {
+           text: `${getter.City || ""}${getter.State ? `, ${getter.State}` : ""} | ${
+             getter.clientmobile || ""
+           } | ${getter.Email || ""}`,
+           style: "subheader",
+         },
+         {
+           text: "OBJECTIVE",
+           style: "sectionTitle",
+         },
+         {
+           text: getter.manualobjective || "No objective provided.",
+           style: "paragraph",
+         },
+   ],
+   styles: {
+      header: {
+        fontSize: 20,
+        bold: true,
+        alignment: "center",
+        margin: [0, 10, 0, 10],
+      },
+      subheader: {
+        fontSize: 12,
+        italics: true,
+        alignment: "center",
+        margin: [0, 5, 0, 10],
+      },
+}
+   }
+   // try {
+   //   await html2pdf(element).save();
+   // } catch (error) {
+   //   console.error("Error generating PDF:", error);
+   // }
+   // const doc=new jsPDF;
+   // console.log(element)
+   // doc.text("this will be printed",10,10)
+   // doc.html(element).save()
+   // doc.save(element)
+   // const pdfContent = htmlToPdfmake(element);
+   // const documentDefinition = { content: pdfContent };
+ 
+   pdfMake.createPdf(docdef).download("Resume.pdf")
+   // console.log(pdfMake)
+ 
+ };
 export function SelectedResume(props)
 {
       const[getter]=useContext(store);
     return(
          <>
-      <Resume  style={{fontFamily:props.fonts}}>
+      <Resume id='done' style={{fontFamily:props.fonts}}>
              <div >
                 <div style={{justifyContent:'center',display:'flex',gap:'10px'}}>
                     <h2>{getter.firstname?getter.firstname:('')}{getter.firstname&&(' ')}</h2>
@@ -108,7 +178,7 @@ export function SelectedResume(props)
                   {getter.Certifications?.length > 0 && (
                      <div>
                         {/* <h2>PROFESSIONAL SKILLS</h2> */}
-                        <Heading>Certificates</Heading>
+                        <Heading>CERTIFICATES</Heading>
                         <hr />
                         <div style={{marginTop:'1rem',lineHeight:'0.5rem',marginBottom:'-7px'}}>
                            <ul style={{ margin:'0px'}}>
@@ -136,7 +206,7 @@ export function SelectedResume(props)
                 {
                   getter.Achievements?.length>0 &&(
                      <div>
-                        <Heading>Achievements</Heading>
+                        <Heading>ACHIEVEMENTS</Heading>
                         <hr />
                         {
                            getter.Achievements?.map((data,index)=>
@@ -205,3 +275,4 @@ const SubHead=styled.span`
    font-size: 15px;
    font-weight: bold;
 `
+export default dwnld;
