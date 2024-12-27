@@ -2,17 +2,13 @@ import { flushSync } from "react-dom";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-// import { BenifitsCompo } from "./BenifitsCompo";
-// import { Footer, Benefit, DirectionToD } from "Landing/Footer";
-// import Footer from "LandingPage/Footer";
 import Footer from "./Landing/Footer";
 import Benefit from "./Landing/Benefit";
-import DirectionToD from "./Landing/DirectionToD";
 import { TypeAnimation } from "react-type-animation";
 import Frequently from "./Landing/Faq";
-import Direc from "./Landing/Directions";
-import ResumeSteps from "./SampleTesting";
+import ResumeSteps from "./Landing/Directions";
 export function LandingPage() {
+
   return (
     <>
       <Landing style={{}}>
@@ -83,8 +79,6 @@ export function LandingPage() {
       </DemoPiece>
 
       <Benefit></Benefit>
-      {/* <DirectionToD></DirectionToD> */}
-      {/* <Direc></Direc> */}
       <ResumeSteps></ResumeSteps>
       <Frequently></Frequently>
       <Footer></Footer>

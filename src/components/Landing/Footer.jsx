@@ -4,7 +4,7 @@ import styled from "styled-components";
 export default function Footer() {
   return (
     <>
-      <Main>
+      {/* <Main>
         <div className="FooterBox">
           <h2>Features</h2>
           <a>Cured text genrator</a>
@@ -45,12 +45,17 @@ export default function Footer() {
           <a>Add frames to photo</a>
           <a>Video trimmer</a>
         </div>
-      </Main>
-      <Main2>
-        <div className="FooterCopyRight">
+      </Main> */}
+      <div className="bg-slate-700 text-gray-50">
+          <div className="mb-4 text-center">
+               <p className="mb-0 text-lg">Our Vision Is To</p>
+               <p className="font-extrabold text-xl">Empowering you to create your tomorrow.</p>
+               <hr className="w-36 mx-auto h-2 bg-green-100 rounded "/>
+          </div>
+        <div  className='p-2 text-center'>
           <p> &copy; 2024 AI Resume Bulider. All rights reserved.</p>
         </div>
-      </Main2>
+      </div>
     </>
   );
 }

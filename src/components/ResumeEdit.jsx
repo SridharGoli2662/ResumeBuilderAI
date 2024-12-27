@@ -99,7 +99,7 @@ const navg=useNavigate();
 
 return(
   <>
-      <Maincompo>
+      <Maincompo id='main'>
       <store.Provider value={[getdata,setdata]}>
         {getdata.popup &&(<AiGenerator></AiGenerator>)} 
         <div id='leftside' >
@@ -122,7 +122,7 @@ return(
       </div>
         </div>
       </div>  
-        <div style={{width:'50vw'}}>
+        <div id='resume' style={{width:'50vw'}}>
         <Top id="top">
           <div style={{display:"inline-flex",gap:'1vw',alignItems:'center'}}>
             <div style={{width:'2vw'}}>
@@ -154,7 +154,7 @@ return(
         <Resumediv id='one'>
         {/* <SelectedResumePdf fonts={getfont}></SelectedResumePdf> */}
         {/* <Test  fonts={getfont}></Test> */}
-        <SelectedResume fonts={getfont}></SelectedResume>
+        <SelectedResume id='two' fonts={getfont}></SelectedResume>
         {/* <Selectedresumepdf id='wanted' fonts={getfont}></Selectedresumepdf> */}
         </Resumediv>
         </div>
@@ -170,11 +170,12 @@ const Resumediv=styled.div`
     height:85vh;
     margin: auto auto;
     border: 2px solid black;
-    @media  screen and (max-width:767px) {
+    /* @media  screen and (max-width:767px) {
     #top{
       width: 50vw;
     }
-  }
+
+  } */
 `
 export const Btns=styled.div`
     display: flex;
@@ -201,6 +202,22 @@ display: flex;
   overflow-y: auto;
   height: 75vh;
 }
+@media  screen and (max-width:767px) {
+    #top{
+      width: 100vw;
+    }
+      display: block;
+      /* width: 100vw; */
+      #resume{
+        width: 100vw;
+      }
+      #one{
+        width: 90vw;
+      }
+      #two{
+        margin: auto auto; 
+      }
+  }
   @media print {
     #one{
     width: 210mm;

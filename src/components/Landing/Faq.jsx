@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import { Link } from "react-router-dom";
 function Accordion() {
   const [activeIndex, setActiveIndex] = useState(null);
 
@@ -9,6 +9,13 @@ function Accordion() {
 
   return (
     <div style={{width:'70vw',margin:'4rem auto'}} id="accordion-collapse" data-accordion="collapse">
+      <div className=" pb-24 text-center">
+        <Link to={"/ResumeEdit"}>
+                      <button className="px-5 py-2.5  text-lg font-medium text-white bg-orange-600 hover:bg-orange-800   w-60 rounded-lg text-center">
+                        GetStarted
+                      </button>
+        </Link>
+      </div>
       <h2 style={{textAlign:'center',margin:'15px'}}>Frequently Asked Questions</h2>
       {/* Accordion Item 1 */}
       <div>
