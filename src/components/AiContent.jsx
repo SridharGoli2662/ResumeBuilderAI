@@ -115,7 +115,7 @@ function close()
 }
 const Outer=styled.div `
 #Popupbg{
-  position: absolute;
+  position: fixed;
    display: flex;
   width: 100%;
   height: 100%;
@@ -140,5 +140,10 @@ const Outer=styled.div `
   width:30vw;
   margin: auto auto;
   border-radius: 1rem;
+}
+@media screen and (max-width: 767px) {
+  #jddetails{
+    width:70%;
+  }
 }
  `

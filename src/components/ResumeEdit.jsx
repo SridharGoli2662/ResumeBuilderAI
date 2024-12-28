@@ -58,13 +58,13 @@ function handlefont(e)
 {
   setfont(e.target.value);
 }
-// useEffect(() => {
-//   const timer = setTimeout(() => {
-//     setdata((prevData) => ({ ...prevData, popup: true }));
-//   }, 3000); 
-//   navigate(formroutes[0]);
-//   return () => clearTimeout(timer);
-// }, []);
+useEffect(() => {
+  const timer = setTimeout(() => {
+    setdata((prevData) => ({ ...prevData, popup: true }));
+  }, 3000); 
+  navigate(formroutes[0]);
+  return () => clearTimeout(timer);
+}, []);
 const navg=useNavigate();
 // async function dwnld()
 // {
