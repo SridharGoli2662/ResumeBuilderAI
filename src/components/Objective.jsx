@@ -56,12 +56,12 @@ export function Objective()
             </form>
             {
                 get ?(
-                    <div className="d-flex gap-3 m-5">
-                    <p className="my-auto text-lg">Show AI Generated Content</p>
-                    <button onClick={ai} className="bg-green-500 px-3 py-2.5 text-m font-medium text-white hover:bg-green-700  focus:ring-4 focus:outline-none focus:ring-black-300 rounded-lg text-center">ClickHere</button>
+                    <div className=" p-3 m-5 border shadow rounded ">
+                    <p className=" text-center p-2 text-lg font-bold ">AI Generated Content</p>
+                    <button onClick={ai} className="block mx-auto bg-green-500 px-3 py-2.5 text-m font-medium text-white hover:bg-green-700  focus:ring-4 focus:outline-none focus:ring-black-300 rounded-lg ">View</button>
                 </div>
                 ):(
-            <div className="m-auto my-4 block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100">
+            <div className="mx-auto my-2 block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100">
                 <div>
                     <div className="text-right">
                     <button  onClick={ai} ><svg  className="w-[33px] h-[33px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
@@ -93,10 +93,11 @@ export function Objective()
                 </div>  
                     ):(
                         <div>
-                            <p>No Content Is Generated</p>
-                            <h3>Do You Really Want AI Content?</h3>
-                            <button onClick={setpop} className="bg-green-500 px-3 py-2.5 text-m font-medium text-white hover:bg-green-700  focus:ring-4 focus:outline-none focus:ring-black-300 rounded-lg text-center">AI</button>
-                            </div>
+                            <p className="text-5xl  text-red-500 font-extrabold text-center">Oops!...</p>
+                            {/* <p>No Content Is Generated</p> */}
+                            {/* <h3>Do You Really Want AI Content?</h3> */}
+                            <button onClick={setpop} className="block mx-auto mt-7 bg-green-500 px-3 py-2.5 text-m font-medium text-white hover:bg-green-700  focus:ring-4 focus:outline-none focus:ring-black-300 rounded-lg text-center">Generate?</button>
+                        </div>
                     )
                 }
             </div>

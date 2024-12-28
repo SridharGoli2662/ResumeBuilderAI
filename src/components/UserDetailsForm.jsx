@@ -50,7 +50,7 @@ export function UserForm()
             //     <Form onSubmit={formik.handleSubmit}>
             <Container>
                 <form >
-                        <div className="grid gap-4 mb-2 md:grid-cols-2">
+                        <div className="grid gap-4 mb-2 md:grid-cols-2  ">
                             <div>
                     <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" htmlFor="firstname">FirstName</label>
                     <input className=" g-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" type="text" value={data.firstname} name="firstname" onChange={hanlemanually} id='firstname' placeholder="Sridhar" />
@@ -106,6 +106,9 @@ export const Container=styled.div`
     /* margin: 20vh 10px; */
     /* display: flex;
     justify-content: center; */
+    @media screen and (max-width: 760px){
+        width: 100vw;
+    }
 `
 // export const Btns=styled.div`
 //     display: flex;

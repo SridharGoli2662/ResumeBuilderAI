@@ -65,7 +65,6 @@ export function ProjectForm()
                     <p>- for unorderlist</p>
                     <p>** for Bold Text **</p>
                     <p>* for Italic Text *</p>
-                    <p>- for unorderlist</p>
 
                 </div> :' '}
             </div>

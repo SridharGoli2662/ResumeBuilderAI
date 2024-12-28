@@ -58,13 +58,13 @@ function handlefont(e)
 {
   setfont(e.target.value);
 }
-useEffect(() => {
-  const timer = setTimeout(() => {
-    setdata((prevData) => ({ ...prevData, popup: true }));
-  }, 3000); 
-  navigate(formroutes[0]);
-  return () => clearTimeout(timer);
-}, []);
+// useEffect(() => {
+//   const timer = setTimeout(() => {
+//     setdata((prevData) => ({ ...prevData, popup: true }));
+//   }, 3000); 
+//   navigate(formroutes[0]);
+//   return () => clearTimeout(timer);
+// }, []);
 const navg=useNavigate();
 // async function dwnld()
 // {
@@ -117,16 +117,16 @@ return(
           <button className="px-5 mb-0 py-2.5 text-sm font-medium text-white bg-blue-700 hover:bg-blue-800  rounded-lg text-center" onClick={reduceindex} disabled={index==0}> Previous</button>
           <button  className="px-5 py-2.5 text-sm font-medium text-white bg-blue-700 hover:bg-blue-800  rounded-lg text-center" onClick={handleindex} disabled={index==formroutes.length-1} >Next</button>
       </Btns>
-      <div  id="forms" >
+      <div  id="forms" className="" >
         <Outlet key={index}></Outlet>
       </div>
         </div>
       </div>  
-        <div id='resume' style={{width:'50vw'}}>
-        <Top id="top">
+        <div id='resume' className="w-3/6">
+        <div id="top" className="flex justify-center gap-2 p-2">
           <div style={{display:"inline-flex",gap:'1vw',alignItems:'center'}}>
-            <div style={{width:'2vw'}}>
-           <img src='FONTS.svg' style={{width:'100%'}}></img>
+            <div >
+           <img src='FONTS.png' className="w-8"></img>
 
             </div>
           <select onChange={handlefont} >
@@ -141,16 +141,16 @@ return(
                      {/* <button onClick={handledownload} style={{backgroundColor:'blue',color:"white"}}>Download</button> */}
                      <button onClick={handledownload} className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center">
   <svg className="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/></svg>
-  <span>Print</span>
+  <span>Download</span>
 </button>
         </Download>
-        <Download>
+        {/* <Download>
                      <button onClick={dwnld} className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center">
   <svg className="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/></svg>
   <span>Download</span>
   </button>
-        </Download>
-        </Top>
+        </Download> */}
+        </div>
         <Resumediv id='one'>
         {/* <SelectedResumePdf fonts={getfont}></SelectedResumePdf> */}
         {/* <Test  fonts={getfont}></Test> */}
@@ -187,14 +187,14 @@ const Download=styled.div`
   
   color: white;
 `
-const Top=styled.div`
-display: flex;
-justify-content: center;
-gap:5rem;
-  margin: 0.5rem;
-  padding:10px;
+// const Top=styled.div`
+// display: flex;
+// justify-content: center;
+// gap:5rem;
+//   margin: 0.5rem;
+//   padding:10px;
  
-`
+// `
 const Maincompo=styled.div`
 display: flex;
 #forms{
@@ -204,7 +204,10 @@ display: flex;
 }
 @media  screen and (max-width:767px) {
     #top{
-      width: 100vw;
+      width: 100%;
+      /* display: inline-block; */
+      /* gap: 1rem; */
+      justify-content: space-around;
     }
       display: block;
       /* width: 100vw; */
@@ -212,11 +215,13 @@ display: flex;
         width: 100vw;
       }
       #one{
-        width: 90vw;
+        width: 80vw;
+        margin: 0px auto;
+        /* text-align: center; */
       }
-      #two{
+      /* #two{
         margin: auto auto; 
-      }
+      } */
   }
   @media print {
     #one{
