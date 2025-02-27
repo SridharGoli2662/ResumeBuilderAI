@@ -7,7 +7,7 @@ import { store } from "./ResumeEdit";
 export function ProfessionalSkills()
 {
     const[context,setcontext]=useContext(store)
-    // console.log(context);
+    console.log(context);
     //only for validation i thik????
     const formik=useFormik({
         initialValues:{
@@ -120,7 +120,7 @@ const[get,set]=useState(true)
                 {
                     context.AIContent?.keywords&&(
               <div>
-            <p  className="text-xl font-bold">KeyWords:</p>
+            <p  className="text-xl font-bold">*Preffered Skills Based to JD:</p>
             {/* <p className="text-m font-semibold">{getter.keywords}</p> */}
             <ul>
             {
@@ -134,21 +134,21 @@ const[get,set]=useState(true)
                     )
                 }
         </div>
-        {
+        {/* {
             context.AIContent?.objective?(
         <div>
             <p className="text-xl font-bold">Objective:</p>
-            <p className="text-m font-semibold">{getter.AIContent.objective}</p>
+            <p className="text-m font-semibold">{context.AIContent.objective}</p>
         </div>  
             ):(
                 <div>
                 <p className="text-5xl  text-red-500 font-extrabold text-center">Oops!...</p>
-                {/* <p>No Content Is Generated</p> */}
-                {/* <h3>Do You Really Want AI Content?</h3> */}
+                <p>No Content Is Generated</p>
+                <h3>Do You Really Want AI Content?</h3>
                 <button onClick={setpop} className="block mx-auto mt-7 bg-green-500 px-3 py-2.5 text-m font-medium text-white hover:bg-green-700  focus:ring-4 focus:outline-none focus:ring-black-300 rounded-lg text-center">Generate?</button>
             </div>
             )
-        }
+        } */}
     </div>
         )
     }

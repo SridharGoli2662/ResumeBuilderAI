@@ -6,6 +6,8 @@ export function AiGenerator()
 {
     //context
     const[getdata,setdata]=useContext(store);
+    // console.log(getdata);
+
 //user data for AI Content Generation 
 const[getuserdata,setuserdata]=useState();
 function datasetting(e)
@@ -22,6 +24,7 @@ async function aiContent()
 {
   setdecision(false)
    const result= await AIchatSession.sendMessage(Prompt)
+  //  console.log(JSON.parse(result.response.text()))
    setdata({...getdata,AIContent:JSON.parse(result.response.text())});
 }
 //popup usestate

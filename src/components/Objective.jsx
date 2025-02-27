@@ -10,6 +10,7 @@ export function Objective()
 {
     const[getter,setter]=useContext(store);
     // const[getter,setter]=useContext(store);
+    console.log(getter)
     // getter.map(x=>console.log(x));
     const formdata=useFormik(
         {
@@ -69,20 +70,20 @@ export function Objective()
 </svg></button>
                         </div>
                         {
-                            getter.AIContent?.keywords&&(
-                      <div>
-                    <p  className="text-xl font-bold">KeyWords:</p>
-                    {/* <p className="text-m font-semibold">{getter.keywords}</p> */}
-                    <ul>
-                    {
-                       getter.AIContent.keywords?.map((x,index)=>
-                            <li key={index}>{x}</li>
-                            // console.log(x)
-                        )
-                    }
-                    </ul>
-                        </div>
-                            )
+                    //         getter.AIContent?.keywords&&(
+                    //   <div>
+                    // {/* <p  className="text-xl font-bold">KeyWords:</p> */}
+                    // {/* <p className="text-m font-semibold">{getter.keywords}</p> */}
+                    // <ul>
+                    // {
+                    //    getter.AIContent.keywords?.map((x,index)=>
+                    //         <li key={index}>{x}</li>
+                    //         // console.log(x)
+                    //     )
+                    // }
+                    // </ul>
+                    //     </div>
+                    //         )
                         }
                 </div>
                 {
