@@ -10,6 +10,7 @@ export function AiGenerator()
 
 //user data for AI Content Generation 
 const[getuserdata,setuserdata]=useState();
+console.log(getuserdata)
 function datasetting(e)
 {
     const{name,value}=e.target;
@@ -19,13 +20,35 @@ function datasetting(e)
 })
 }
 //AI Services
-const Prompt=`generate best keywords and objective for Role:"${getuserdata?.jt}" ExperienceLevel:"${getuserdata?.experience}" and the jobDescription is "${getuserdata?.jd}" with in 100 tokens use 70 tokens for objective in JSON format`
+// const Prompt=`generate best keywords and objective  for Role:"${getuserdata?.jt}" ExperienceLevel:"${getuserdata?.experience}" and the jobDescription is "${getuserdata?.jd}" with in 100 tokens use 70 tokens for objective in JSON format`
+// const Prompt = `Generate a job objective and keywords in a structured JSON format for the role of "${getuserdata?.jt}" with experience level "${getuserdata?.experience}". 
+// The job description is: "${getuserdata?.jd}".
+
+// Format the response as JSON:
+// {
+//   "objective": "A single well-structured paragraph summarizing the candidate's career objective.",
+//   "keywords": ["keyword1", "keyword2", "keyword3", "..."]
+// }
+
+// Ensure that:
+// 1. The "objective" key always contains a **single paragraph** (not multiple sub-sections).
+// 2. The "keywords" key contains an **array of relevant industry keywords**.
+// 3. Keep the response concise, within **100 tokens**, with **70 tokens dedicated to the objective**.
+// 4. Do not include unnecessary text outside the JSON object.
+// `
+const Prompt = `Provide a JSON response with:
+{
+  "objective": "One short paragraph (max 70 tokens) summarizing career goals for ${getuserdata?.jt} with ${getuserdata?.experience} experience.",
+  "keywords": ["Top industry keywords (max 5) based on ${getuserdata?.jd}."]
+}
+Strict JSON format only. No extra text.`
 async function aiContent()
 {
   setdecision(false)
    const result= await AIchatSession.sendMessage(Prompt)
-  //  console.log(JSON.parse(result.response.text()))
+   console.log(JSON.parse(result.response.text()))
    setdata({...getdata,AIContent:JSON.parse(result.response.text())});
+  console.log(getdata)
 }
 //popup usestate
 const [getpop,setpop]=useState(false);

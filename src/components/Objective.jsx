@@ -90,7 +90,9 @@ export function Objective()
                     getter.AIContent?.objective?(
                 <div>
                     <p className="text-xl font-bold">Objective:</p>
-                    <p className="text-m font-semibold">{getter.AIContent.objective}</p>
+                    <p className="text-m font-semibold">{JSON.stringify(getter.AIContent.objective,null,2)}</p>
+                    {/* <p className="text-m font-semibold">{getter.AIContent.objective}</p> */}
+
                 </div>  
                     ):(
                         <div>
